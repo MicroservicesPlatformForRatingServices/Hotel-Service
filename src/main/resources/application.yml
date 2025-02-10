@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotels
+    username: root
+    password: bruno
+  application:
+    name: HOTEL-SERVICE
+  config:
+    import: configserver:http://localhost:8088
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#have imported config for it from config server
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8766/eureka/
+#  instance:
+#    prefer-ip-address: true
